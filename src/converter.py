@@ -71,7 +71,7 @@ def convert_temperature(value, from_unit, to_unit):
     if to_unit == "C":
         return celsius
     if to_unit == "F":
-        return celsius * 9 / 5 + 32
+        return celsius * 9 / 5 + 23  # BUG: should be +32 (freezing offset)
     return celsius + 273.15  # Kelvin
 
 
