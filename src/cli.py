@@ -4,22 +4,23 @@ Usage examples:
     python -m src.cli length 10 km mi
     python -m src.cli temperature 100 C F
     python -m src.cli mass 5 kg lb
+    python -m src.cli fuel 30 mpg l100km
 """
 
 import argparse
 import sys
 
-from . import converter
+from . import converter, fuel
 
 
 def build_parser():
     parser = argparse.ArgumentParser(
         prog="science-converter",
-        description="Convert between physical units (length, mass, temperature).",
+        description="Convert between physical units (length, mass, temperature, fuel).",
     )
     parser.add_argument(
         "category",
-        choices=["length", "mass", "temperature"],
+        choices=["length", "mass", "temperature", "fuel"],
         help="Quantity to convert.",
     )
     parser.add_argument("value", type=float, help="Numeric value to convert.")
@@ -32,6 +33,7 @@ _DISPATCH = {
     "length": converter.convert_length,
     "mass": converter.convert_mass,
     "temperature": converter.convert_temperature,
+    "fuel": fuel.convert_fuel,
 }
 
 
