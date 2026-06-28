@@ -15,7 +15,7 @@ from . import converter
 def build_parser():
     parser = argparse.ArgumentParser(
         prog="science-converter",
-        description="Convert between physical units (length, mass, temperature).",
+        description="Science Converter — convert physical units from the command line.",
     )
     parser.add_argument(
         "category",
